@@ -1,0 +1,50 @@
+package main
+
+import "fmt"
+
+type bot interface {
+	getgreeting() string
+}
+
+type englishBot struct{}
+
+type spanishBot struct{}
+
+func (eb englishBot) getgreeting() string {
+
+	return "Hello there"
+
+}
+
+func (sb spanishBot) getgreeting() string {
+
+	return "holaa !!"
+
+}
+
+/*
+func printgreeting(eb englishBot) {
+
+	fmt.Println(eb.getgreeting())
+}
+
+func printgreeting(sb spanishBot) {
+
+	fmt.Println(sb.getgreeting())
+}
+
+*/
+
+func printGreeting(b bot) {
+	//fmt.Println(b)
+	fmt.Println(b.getgreeting())
+}
+func main() {
+
+	eb := englishBot{}
+	sb := spanishBot{}
+
+	printGreeting(eb)
+	printGreeting(sb)
+
+}
